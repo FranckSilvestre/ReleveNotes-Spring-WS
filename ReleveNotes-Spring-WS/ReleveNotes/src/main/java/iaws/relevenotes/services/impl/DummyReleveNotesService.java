@@ -60,18 +60,13 @@ public class DummyReleveNotesService implements ReleveNoteService {
 
         // create annee scolaire
         //
-        AnneeScolaire anneeScolaire = new AnneeScolaire();
-        anneeScolaire.setCode("2012-2013");
-        anneeScolaire.setLibelle("Année scolaire 2012-2013");
+        AnneeScolaire anneeScolaire = new AnneeScolaire("2012-2013");
 
         // create niveau
-        Niveau niveauMaster = new Niveau();
-        niveauMaster.setCode("Master");
-        niveauMaster.setLibelle("Master");
+        Niveau niveauMaster = new Niveau("Master");
 
         // create semestre
-        Semestre sem2 = new Semestre();
-        sem2.setId(2);
+        Semestre sem2 = new Semestre(2);
 
         // create evaluations
         List<Evaluation> evaluationList = new ArrayList<Evaluation>();

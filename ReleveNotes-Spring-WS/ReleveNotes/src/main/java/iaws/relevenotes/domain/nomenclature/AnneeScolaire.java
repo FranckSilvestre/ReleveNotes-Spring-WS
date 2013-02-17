@@ -11,6 +11,11 @@ public class AnneeScolaire {
     private String code;
     private String libelle ;
 
+    public AnneeScolaire(String code) {
+        this.code = code;
+        this.libelle = code ;
+    }
+
     public String getLibelle() {
         return libelle;
     }

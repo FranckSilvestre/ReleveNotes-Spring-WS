@@ -1,5 +1,6 @@
 package iaws.relevenotes.domain;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -10,7 +11,7 @@ public class Etudiant {
     private Integer id;
     private String nom;
     private String prenom;
-    private List<Evaluation> evaluationList;
+    private List<Evaluation> evaluationList = new ArrayList<Evaluation>();
 
     public String getPrenom() {
         return prenom;

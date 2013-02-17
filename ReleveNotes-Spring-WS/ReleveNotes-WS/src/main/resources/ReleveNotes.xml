@@ -1,0 +1,47 @@
+<ReleveNotes xmlns="http://iaws/ws/contractfirst/exemple" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://iaws/ws/contractfirst/exemple ReleveNotes.xsd" annee_scolaire="2012-2013" niveau="Master" semestre="2">
+    <etudiant id="123456789">
+        <nom>Dupont</nom>
+        <prenom>Pauline</prenom>
+    </etudiant>
+    <etudiant id="189246756">
+        <nom>Durand</nom>
+        <prenom>Jules</prenom>
+    </etudiant>
+    <matiere id="598">
+        <code>IAWS</code>
+        <libelle>Interopérabilité Application Web Services</libelle>
+    </matiere>
+    <matiere id="421">
+        <code>JEE</code>
+        <libelle>Java Entreprise Edition</libelle>
+    </matiere>
+    <evaluation id="235" id_etudiant="123456789" id_matiere="421">
+        <titre>Evaluation 1</titre>
+        <date>2013-01-15</date>
+        <note>15.5</note>
+        <note_max>20</note_max>
+        <coefficient>1</coefficient>
+    </evaluation>
+    <evaluation id="236" id_etudiant="123456789" id_matiere="598">
+        <titre>Evaluation 2</titre>
+        <date>2013-01-15</date>
+        <note>18</note>
+        <note_max>20</note_max>
+        <coefficient>0.5</coefficient>
+    </evaluation>
+    <evaluation id="237" id_etudiant="189246756" id_matiere="421">
+        <titre>Evaluation 1</titre>
+        <date>2013-01-15</date>
+        <note>11</note>
+        <note_max>20</note_max>
+        <coefficient>1</coefficient>
+    </evaluation>
+    <evaluation id="238" id_etudiant="189246756" id_matiere="598">
+        <titre>Evaluation 2</titre>
+        <date>2013-01-15</date>
+        <note>14</note>
+        <note_max>20</note_max>
+        <coefficient>0.5</coefficient>
+    </evaluation>
+</ReleveNotes>

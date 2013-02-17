@@ -8,6 +8,11 @@ public class Niveau {
     private String code;
     private String libelle;
 
+    public Niveau(String code) {
+        this.code = code;
+        this.libelle = code;
+    }
+
     public String getLibelle() {
         return libelle;
     }

@@ -7,6 +7,10 @@ public class Semestre {
 
     private Integer id;
 
+    public Semestre(Integer id) {
+        this.id = id;
+    }
+
     public Integer getId() {
         return id;
     }
