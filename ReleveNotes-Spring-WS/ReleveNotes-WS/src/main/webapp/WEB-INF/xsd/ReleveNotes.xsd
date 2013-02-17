@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://iaws/ws/contractfirst/exemple" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <xs:element name="ReleveNotes" type="exem:ReleveNotesType" xmlns:exem="http://iaws/ws/contractfirst/exemple"/>
+
+    <xs:complexType name="matiereType">
+    <xs:all>
+      <xs:element name="code">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="IAWS"/>
+            <xs:enumeration value="JEE"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="libelle">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="Interopérabilité Application Web Services"/>
+            <xs:enumeration value="Java Entreprise Edition"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:all>
+    <xs:attribute type="xs:short" name="id" use="optional"/>
+  </xs:complexType>
+
+    <xs:complexType name="etudiantType">
+    <xs:all>
+      <xs:element name="nom">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="Dupont"/>
+            <xs:enumeration value="Durand"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="prenom">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="Pauline"/>
+            <xs:enumeration value="Jules"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:all>
+    <xs:attribute type="xs:int" name="id" use="optional"/>
+  </xs:complexType>
+
+    <xs:complexType name="evaluationType">
+    <xs:all>
+      <xs:element type="xs:string" name="titre"/>
+      <xs:element type="xs:date" name="date"/>
+      <xs:element type="xs:float" name="note"/>
+      <xs:element type="xs:float" name="note_max"/>
+      <xs:element type="xs:float" name="coefficient"/>
+    </xs:all>
+    <xs:attribute type="xs:int" name="id" use="required"/>
+    <xs:attribute type="xs:int" name="id_etudiant" use="required"/>
+    <xs:attribute type="xs:int" name="id_matiere" use="required"/>
+  </xs:complexType>
+
+    <xs:complexType name="ReleveNotesType">
+    <xs:sequence>
+      <xs:element type="exem:etudiantType" name="etudiant" maxOccurs="unbounded" minOccurs="1" xmlns:exem="http://iaws/ws/contractfirst/exemple"/>
+      <xs:element type="exem:matiereType" name="matiere" maxOccurs="unbounded" minOccurs="1" xmlns:exem="http://iaws/ws/contractfirst/exemple"/>
+      <xs:element type="exem:evaluationType" name="evaluation" maxOccurs="unbounded" minOccurs="1" xmlns:exem="http://iaws/ws/contractfirst/exemple"/>
+    </xs:sequence>
+    <xs:attribute type="xs:string" name="annee_scolaire"/>
+    <xs:attribute type="xs:string" name="niveau"/>
+    <xs:attribute type="xs:short" name="semestre"/>
+  </xs:complexType>
+
+    <xs:element name="ReleveNotesRequest" type="exem:ReleveNotesRequestType" xmlns:exem="http://iaws/ws/contractfirst/exemple"/>
+
+    <xs:complexType name="ReleveNotesRequestType">
+        <xs:all>
+            <xs:element type="xs:string" name="annee_scolaire"/>
+            <xs:element type="xs:string" name="niveau"/>
+            <xs:element type="xs:short" name="semestre"/>
+        </xs:all>
+    </xs:complexType>
+</xs:schema>

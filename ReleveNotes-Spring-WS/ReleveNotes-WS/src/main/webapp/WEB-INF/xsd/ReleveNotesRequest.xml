@@ -1,0 +1,6 @@
+<ReleveNotesRequest xmlns="http://iaws/ws/contractfirst/exemple" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://iaws/ws/contractfirst/exemple ReleveNotes.xsd">
+    <annee_scolaire>2012-2013</annee_scolaire>
+    <niveau>Master</niveau>
+    <semestre>2</semestre>
+</ReleveNotesRequest>
