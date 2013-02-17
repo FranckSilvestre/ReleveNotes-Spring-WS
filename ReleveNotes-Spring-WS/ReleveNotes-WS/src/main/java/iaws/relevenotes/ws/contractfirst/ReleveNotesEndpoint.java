@@ -17,7 +17,7 @@ import java.util.List;
 /**
  * @author franck Silvestre
  */
-@Endpoint
+
 public class ReleveNotesEndpoint {
     private ReleveNoteService releveNotesService;
 
@@ -27,9 +27,8 @@ public class ReleveNotesEndpoint {
         this.releveNotesService = releveNotesService;
     }
 
-    @PayloadRoot(namespace = NAMESPACE_URI, localPart = "ReleveNotesRequest")
-    @ResponsePayload
-    public Element handleReleveNotesRequest(@XPathParam("/ReleveNotesRequest/annee_scolaire") String anneeScol, @XPathParam("/ReleveNotesRequest/niveau") String niveauCode, @XPathParam("/ReleveNotesRequest/semestre") Integer semestreId) throws Exception {
+
+    public Element handleReleveNotesRequest(String anneeScol,  String niveauCode, Integer semestreId) throws Exception {
 
         // parse le XML de ReleveNotesRequest pour extraire les informations de
         // l'année scolaire, du niveau et du semestre  et creer les objets ad-hoc
@@ -43,7 +42,10 @@ public class ReleveNotesEndpoint {
         List<Evaluation> evals = releveNotesService.findAllEvaluationsForAnneeScolaireNiveauAndSemestre(anneeScolaire, niveau, semestre);
 
         // Transforme en élément XML ad-hoc pour le retour
-        //
+        // Ici, on prend le parti de renvoyer un fichier XML statique. Il faudrait traiter la
+        // liste des évaluations avec une API XML pour fournir l'élément réponse de manière
+        // dynamique
+
         Element elt = XmlHelper.getRootElementFromFileInClasspath("ReleveNotes.xml") ;
         return  elt;
 

@@ -5,14 +5,9 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
        http://www.springframework.org/schema/web-services http://www.springframework.org/schema/web-services/web-services-2.0.xsd">
 
-    <sws:annotation-driven/>
 
-    <sws:dynamic-wsdl id="releveNotes"
-                      portTypeName="Scolarite"
-                      locationUri="/releveNotesService/"
-                      targetNamespace="http://iaws/ws/contractfirst/exemple">
-        <sws:xsd location="/WEB-INF/xsd/ReleveNotes.xsd"/>
-    </sws:dynamic-wsdl>
+
+
 
     <bean id="releveNotesEndPoint"
           class="iaws.relevenotes.ws.contractfirst.ReleveNotesEndpoint">
