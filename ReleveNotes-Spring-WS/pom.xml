@@ -11,6 +11,7 @@
     <modules>
         <module>ReleveNotes-WS</module>
         <module>ReleveNotes</module>
+        <module>ReleveNotes-WSRest</module>
     </modules>
 
     <dependencyManagement>

@@ -1,0 +1,113 @@
+Opérations sur ressource "etudiant"
+===================================
+
+
+Récupère un étudiant
+--------------------
+
+GET http://<serveur>:<port>/scolarite/v1/etudiants/${id}
+
+Corps de la requête :
+N/A
+
+Corps de la réponse en cas de succès :
+{
+   "url": "http://<serveur>:<port>/scolarite/v1/etudiants/${id}",
+   "nom": "Dupond",
+   "prenom": "Pauline",
+   "evaluations": [
+        "http://<serveur>:<port>/scolarite/v1/evaluation/${id_eval_1}",
+        "http://<serveur>:<port>/scolarite/v1/evaluation/${id_eval_2}"
+   ]
+}
+
+
+Supprime un étudiant
+--------------------
+
+DELETE http://<serveur>:<port>/scolarite/v1/etudiants/${id}
+
+Corps de la requête :
+N/A
+
+Corps de la réponse :
+N/A
+
+Crée un nouvel étudiant
+-----------------------
+
+POST http://<serveur>:<port>/scolarite/v1/etudiants
+
+Corps de la requête :
+{
+   "nom": "Dupond",
+   "prenom": "Pauline"
+}
+
+
+Corps de la réponse en cas de succès:
+{
+   "url": "http://<serveur>:<port>/scolarite/v1/etudiants/${id}"
+   "nom": "Dupond",
+   "prenom": "Pauline"
+}
+
+Modifie un étudiant
+-------------------
+
+PUT http://<serveur>:<port>/scolarite/v1/etudiants/${id}
+
+Corps de la requête :
+{
+   "url": "http://<serveur>:<port>/scolarite/v1/etudiants/${id}",
+   "nom": "Dupond",
+   "prenom": "Paulette",
+   "evaluations": [
+        "http://<serveur>:<port>/scolarite/v1/evaluation/${id_eval_1}",
+        "http://<serveur>:<port>/scolarite/v1/evaluation/${id_eval_2}"
+   ]
+}
+
+Corps de la réponse en cas de succès :
+{
+   "url": "http://<serveur>:<port>/scolarite/v1/etudiants/${id}",
+   "nom": "Dupond",
+   "prenom": "Paulette",
+   "evaluations": [
+        "http://<serveur>:<port>/scolarite/v1/evaluation/${id_eval_1}",
+        "http://<serveur>:<port>/scolarite/v1/evaluation/${id_eval_2}"
+   ]
+}
+
+Liste des étudiants pour une année scolaire, un semestre, un niveau
+-------------------------------------------------------------------
+
+GET http://<serveur>:<port>/scolarite/v1/etudiants?annee=2012-2013&semestre=2&niveau=Master
+
+Corps de la requête :
+N/A
+
+Corps de la réponse en cas de succès :
+{
+    "count": 158,
+    "resultats": [
+        {
+           "url": "http://<serveur>:<port>/scolarite/v1/etudiants/${id}",
+           "nom": "Dupond",
+           "prenom": "Paulette",
+           "evaluations": [
+                "http://<serveur>:<port>/scolarite/v1/evaluation/${id_eval_1}",
+                "http://<serveur>:<port>/scolarite/v1/evaluation/${id_eval_2}"
+           ]
+        },
+        ...
+        {
+            "url": "http://<serveur>:<port>/scolarite/v1/etudiants/${id}",
+            "nom": "Durand",
+            "prenom": "Jules",
+            "evaluations": [
+                "http://<serveur>:<port>/scolarite/v1/evaluation/${id_eval_3}",
+            ]
+        }
+    ]
+}
