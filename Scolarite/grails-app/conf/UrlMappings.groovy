@@ -7,14 +7,21 @@ class UrlMappings {
       }
     }
 
-    "/api/v1/etudiants"(controller: "etudiant", parseRequest: true) {
-      action = [GET: "list"]
+    "/api/v1/etudiants"(controller: "etudiantApi", parseRequest: true) {
+      action = [GET: "list", POST: "createAndInsert"]
     }
-    "/api/v1/evaluations"(controller: "evaluation", parseRequest: true) {
-      action = [GET: "list"]
+
+    "/api/v1/etudiants/$id"(controller: "etudiantApi", parseRequest: true) {
+      action = [GET: "show"]
     }
-    "/api/v1/etudiants/$id"(resource: "etudiant")
-    "/api/v1/evaluations/$id"(resource: "evaluation")
+
+    "/api/v1/evaluations"(controller: "evaluationApi", parseRequest: true) {
+      action = [GET: "list", POST: "createAndInsert"]
+    }
+
+    "/api/v1/evaluations/$id"(controller: "evaluationApi", parseRequest: true) {
+      action = [GET: "show"]
+    }
 
     "/"(view: "/index")
     "500"(view: '/error')

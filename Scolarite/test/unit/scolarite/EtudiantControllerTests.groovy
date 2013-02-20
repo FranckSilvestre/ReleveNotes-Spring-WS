@@ -9,147 +9,147 @@ import grails.test.mixin.*
 @Mock(Etudiant)
 class EtudiantControllerTests {
 
-  def populateValidParams(params) {
-    assert params != null
-    // TODO: Populate valid properties like...
-    //params["name"] = 'someValidName'
-  }
+    def populateValidParams(params) {
+        assert params != null
+        // TODO: Populate valid properties like...
+        //params["name"] = 'someValidName'
+    }
 
-  void testIndex() {
-    controller.index()
-    assert "/etudiant/list" == response.redirectedUrl
-  }
+    void testIndex() {
+        controller.index()
+        assert "/etudiant/list" == response.redirectedUrl
+    }
 
-  void testList() {
+    void testList() {
 
-    def model = controller.list()
+        def model = controller.list()
 
-    assert model.etudiantInstanceList.size() == 0
-    assert model.etudiantInstanceTotal == 0
-  }
+        assert model.etudiantInstanceList.size() == 0
+        assert model.etudiantInstanceTotal == 0
+    }
 
-  void testCreate() {
-    def model = controller.create()
+    void testCreate() {
+        def model = controller.create()
 
-    assert model.etudiantInstance != null
-  }
+        assert model.etudiantInstance != null
+    }
 
-  void testSave() {
-    controller.save()
+    void testSave() {
+        controller.save()
 
-    assert model.etudiantInstance != null
-    assert view == '/etudiant/create'
+        assert model.etudiantInstance != null
+        assert view == '/etudiant/create'
 
-    response.reset()
+        response.reset()
 
-    populateValidParams(params)
-    controller.save()
+        populateValidParams(params)
+        controller.save()
 
-    assert response.redirectedUrl == '/etudiant/show/1'
-    assert controller.flash.message != null
-    assert Etudiant.count() == 1
-  }
+        assert response.redirectedUrl == '/etudiant/show/1'
+        assert controller.flash.message != null
+        assert Etudiant.count() == 1
+    }
 
-  void testShow() {
-    controller.show()
+    void testShow() {
+        controller.show()
 
-    assert flash.message != null
-    assert response.redirectedUrl == '/etudiant/list'
+        assert flash.message != null
+        assert response.redirectedUrl == '/etudiant/list'
 
-    populateValidParams(params)
-    def etudiant = new Etudiant(params)
+        populateValidParams(params)
+        def etudiant = new Etudiant(params)
 
-    assert etudiant.save() != null
+        assert etudiant.save() != null
 
-    params.id = etudiant.id
+        params.id = etudiant.id
 
-    def model = controller.show()
+        def model = controller.show()
 
-    assert model.etudiantInstance == etudiant
-  }
+        assert model.etudiantInstance == etudiant
+    }
 
-  void testEdit() {
-    controller.edit()
+    void testEdit() {
+        controller.edit()
 
-    assert flash.message != null
-    assert response.redirectedUrl == '/etudiant/list'
+        assert flash.message != null
+        assert response.redirectedUrl == '/etudiant/list'
 
-    populateValidParams(params)
-    def etudiant = new Etudiant(params)
+        populateValidParams(params)
+        def etudiant = new Etudiant(params)
 
-    assert etudiant.save() != null
+        assert etudiant.save() != null
 
-    params.id = etudiant.id
+        params.id = etudiant.id
 
-    def model = controller.edit()
+        def model = controller.edit()
 
-    assert model.etudiantInstance == etudiant
-  }
+        assert model.etudiantInstance == etudiant
+    }
 
-  void testUpdate() {
-    controller.update()
+    void testUpdate() {
+        controller.update()
 
-    assert flash.message != null
-    assert response.redirectedUrl == '/etudiant/list'
+        assert flash.message != null
+        assert response.redirectedUrl == '/etudiant/list'
 
-    response.reset()
+        response.reset()
 
-    populateValidParams(params)
-    def etudiant = new Etudiant(params)
+        populateValidParams(params)
+        def etudiant = new Etudiant(params)
 
-    assert etudiant.save() != null
+        assert etudiant.save() != null
 
-    // test invalid parameters in update
-    params.id = etudiant.id
-    //TODO: add invalid values to params object
+        // test invalid parameters in update
+        params.id = etudiant.id
+        //TODO: add invalid values to params object
 
-    controller.update()
+        controller.update()
 
-    assert view == "/etudiant/edit"
-    assert model.etudiantInstance != null
+        assert view == "/etudiant/edit"
+        assert model.etudiantInstance != null
 
-    etudiant.clearErrors()
+        etudiant.clearErrors()
 
-    populateValidParams(params)
-    controller.update()
+        populateValidParams(params)
+        controller.update()
 
-    assert response.redirectedUrl == "/etudiant/show/$etudiant.id"
-    assert flash.message != null
+        assert response.redirectedUrl == "/etudiant/show/$etudiant.id"
+        assert flash.message != null
 
-    //test outdated version number
-    response.reset()
-    etudiant.clearErrors()
+        //test outdated version number
+        response.reset()
+        etudiant.clearErrors()
 
-    populateValidParams(params)
-    params.id = etudiant.id
-    params.version = -1
-    controller.update()
+        populateValidParams(params)
+        params.id = etudiant.id
+        params.version = -1
+        controller.update()
 
-    assert view == "/etudiant/edit"
-    assert model.etudiantInstance != null
-    assert model.etudiantInstance.errors.getFieldError('version')
-    assert flash.message != null
-  }
+        assert view == "/etudiant/edit"
+        assert model.etudiantInstance != null
+        assert model.etudiantInstance.errors.getFieldError('version')
+        assert flash.message != null
+    }
 
-  void testDelete() {
-    controller.delete()
-    assert flash.message != null
-    assert response.redirectedUrl == '/etudiant/list'
+    void testDelete() {
+        controller.delete()
+        assert flash.message != null
+        assert response.redirectedUrl == '/etudiant/list'
 
-    response.reset()
+        response.reset()
 
-    populateValidParams(params)
-    def etudiant = new Etudiant(params)
+        populateValidParams(params)
+        def etudiant = new Etudiant(params)
 
-    assert etudiant.save() != null
-    assert Etudiant.count() == 1
+        assert etudiant.save() != null
+        assert Etudiant.count() == 1
 
-    params.id = etudiant.id
+        params.id = etudiant.id
 
-    controller.delete()
+        controller.delete()
 
-    assert Etudiant.count() == 0
-    assert Etudiant.get(etudiant.id) == null
-    assert response.redirectedUrl == '/etudiant/list'
-  }
+        assert Etudiant.count() == 0
+        assert Etudiant.get(etudiant.id) == null
+        assert response.redirectedUrl == '/etudiant/list'
+    }
 }
