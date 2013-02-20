@@ -11,7 +11,7 @@ class EvaluationController {
     }
 
     def list(Integer max) {
-        params.max = Math.min(max ?: 10, 100)
+        params.max = Math.min(max ?: 20, 100)
         [evaluationInstanceList: Evaluation.list(params), evaluationInstanceTotal: Evaluation.count()]
     }
 
