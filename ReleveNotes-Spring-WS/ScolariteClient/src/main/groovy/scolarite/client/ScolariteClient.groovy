@@ -11,9 +11,9 @@ class ScolariteClient {
 
   def displayAllEtudiants() {
     def status = "success"
-    def http = new HTTPBuilder("http://localhost:8080")
+    def http = new HTTPBuilder("http://scolarite.ticetime.cloudbees.net")
     http.request(Method.GET, JSON) {
-      uri.path = '/Scolarite/api/v1/etudiants.json'
+      uri.path = '/api/v1/etudiants'
       response.success = { resp, json ->
           println json
       }
