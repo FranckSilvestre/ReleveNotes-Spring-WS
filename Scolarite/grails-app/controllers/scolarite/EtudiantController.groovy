@@ -1,5 +1,6 @@
 package scolarite
 
+import grails.converters.JSON
 import org.springframework.dao.DataIntegrityViolationException
 
 class EtudiantController {
@@ -11,8 +12,12 @@ class EtudiantController {
     }
 
     def list(Integer max) {
-        params.max = Math.min(max ?: 10, 100)
-        [etudiantInstanceList: Etudiant.list(params), etudiantInstanceTotal: Etudiant.count()]
+      def etudiants = Etudiant.list()
+      withFormat {
+        html etudiantInstanceList: etudiants, etudiantInstanceTotal: Etudiant.count()
+        json { render etudiants as JSON }
+
+      }
     }
 
     def create() {
