@@ -29,7 +29,9 @@ public class ReleveNotesEndpoint {
 
     @PayloadRoot(namespace = NAMESPACE_URI, localPart = "ReleveNotesRequest")
     @ResponsePayload
-    public Element handleReleveNotesRequest(@XPathParam("/ReleveNotesRequest/annee_scolaire") String anneeScol, @XPathParam("/ReleveNotesRequest/niveau") String niveauCode, @XPathParam("/ReleveNotesRequest/semestre") Integer semestreId) throws Exception {
+    public Element handleReleveNotesRequest(@XPathParam("/ReleveNotesRequest/annee_scolaire") String anneeScol,
+                                            @XPathParam("/ReleveNotesRequest/niveau") String niveauCode,
+                                            @XPathParam("/ReleveNotesRequest/semestre") Integer semestreId) throws Exception {
 
         // parse le XML de ReleveNotesRequest pour extraire les informations de
         // l'année scolaire, du niveau et du semestre  et creer les objets ad-hoc
