@@ -5,10 +5,7 @@ import iaws.relevenotes.domain.nomenclature.AnneeScolaire;
 import iaws.relevenotes.domain.nomenclature.Niveau;
 import iaws.relevenotes.domain.nomenclature.Semestre;
 import iaws.relevenotes.services.ReleveNoteService;
-import org.springframework.ws.server.endpoint.annotation.Endpoint;
-import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
-import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
-import org.springframework.ws.server.endpoint.annotation.XPathParam;
+import org.springframework.ws.server.endpoint.annotation.*;
 import org.w3c.dom.Element;
 
 
@@ -28,10 +25,11 @@ public class ReleveNotesEndpoint {
     }
 
     @PayloadRoot(namespace = NAMESPACE_URI, localPart = "ReleveNotesRequest")
+    @Namespace(prefix="rn",uri=NAMESPACE_URI)
     @ResponsePayload
-    public Element handleReleveNotesRequest(@XPathParam("/ReleveNotesRequest/annee_scolaire") String anneeScol,
-                                            @XPathParam("/ReleveNotesRequest/niveau") String niveauCode,
-                                            @XPathParam("/ReleveNotesRequest/semestre") Integer semestreId) throws Exception {
+    public Element handleReleveNotesRequest(@XPathParam("/rn:ReleveNotesRequest/rn:annee_scolaire") String anneeScol,
+                                            @XPathParam("/rn:ReleveNotesRequest/rn:niveau") String niveauCode,
+                                            @XPathParam("/rn:ReleveNotesRequest/rn:semestre") Integer semestreId) throws Exception {
 
         // parse le XML de ReleveNotesRequest pour extraire les informations de
         // l'année scolaire, du niveau et du semestre  et creer les objets ad-hoc
