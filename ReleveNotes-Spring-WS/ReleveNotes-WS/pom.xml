@@ -10,7 +10,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>Exemple-Spring-WS</artifactId>
+    <artifactId>ReleveNotes-WS</artifactId>
 
     <packaging>war</packaging>
     <name>Exemple-Spring-WS Spring-WS Application</name>
