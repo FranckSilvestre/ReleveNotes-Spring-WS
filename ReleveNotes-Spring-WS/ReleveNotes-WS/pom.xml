@@ -10,13 +10,13 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>Exemple-Spring-WS</artifactId>
+    <artifactId>ReleveNotes-WS</artifactId>
 
     <packaging>war</packaging>
     <name>Exemple-Spring-WS Spring-WS Application</name>
     <url>http://www.springframework.org/spring-ws</url>
     <build>
-        <finalName>Exemple-Spring-WS</finalName>
+        <finalName>ReleveNotes-WS</finalName>
         <plugins>
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
